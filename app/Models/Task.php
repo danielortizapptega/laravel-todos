@@ -12,4 +12,9 @@ class Task extends Model
     use SoftDeletes;
     
     protected $fillable = ['title', 'description', 'completed_at'];
+
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
+    }
 }

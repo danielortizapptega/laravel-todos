@@ -19,3 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('/tasks', 'App\Http\Controllers\TasksController');
+
+Route::apiResource('/tasks.notes', 'App\Http\Controllers\NotesController');

@@ -11,12 +11,18 @@ class TasksController extends Controller
 {
     public function index()
     {
-        return response(Task::all()->jsonSerialize(), Response::HTTP_OK);
+        return response(
+            Task::with('notes')->get()->jsonSerialize(),
+            Response::HTTP_OK
+        );
     }
 
    public function show(Task $task)
     {
-        return response($task->jsonSerialize(), Response::HTTP_OK);
+        return response(
+            $task->load('notes')->jsonSerialize(),
+            Response::HTTP_OK
+        );
     } 
 
     
